@@ -1,14 +1,14 @@
-// routes
-var auth_routes = require('./app/routes/auth.routes')(app);
-var user_routes = require('./app/routes/user.routes')(app);
-var supply_routes = require('./app/routes/supply.routes')(app);
-
 const express = require("express");
 const multipart = require('connect-multiparty');
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const app = express();
+
+// routes
+var auth_routes = require('./app/routes/auth.routes')(app);
+var user_routes = require('./app/routes/user.routes')(app);
+var supply_routes = require('./app/routes/supply.routes')(app);
 
 const fs = require('fs');
 const { createWorker } = require('tesseract.js');
