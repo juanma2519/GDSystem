@@ -48,9 +48,9 @@ app.use((req, res, next) => {
 });
 
 app.use(express.static(path.join(__dirname, 'client')));
-app.use('/api', auth_routes);
-app.use('/api', user_routes);
-app.use('/api', supply_routes);
+app.use(auth_routes);
+app.use(user_routes);
+app.use(supply_routes);
 
 
 app.get('*', function (req, res){
