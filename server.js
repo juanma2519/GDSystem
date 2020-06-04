@@ -2,7 +2,7 @@ const express = require("express");
 const multipart = require('connect-multiparty');
 const bodyParser = require("body-parser");
 const cors = require("cors");
-
+var path = require('path');
 const app = express();
 
 // routes
