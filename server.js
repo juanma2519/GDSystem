@@ -6,9 +6,9 @@ var path = require('path');
 const app = express();
 
 // routes
-var auth_routes = require('./app/routes/auth.routes')(app);
-var user_routes = require('./app/routes/user.routes')(app);
-var supply_routes = require('./app/routes/supply.routes')(app);
+require('./app/routes/auth.routes')(app);
+require('./app/routes/user.routes')(app);
+require('./app/routes/supply.routes')(app);
 
 const fs = require('fs');
 const { createWorker } = require('tesseract.js');
@@ -19,7 +19,7 @@ const db = require("./app/models");
 const Role = db.role;
 const TypeSupply = db.typeSupply;
 // set port, listen for requests
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3789;
 var corsOptions = {
   origin: "*"
 };
@@ -48,10 +48,6 @@ app.use((req, res, next) => {
 });
 
 app.use(express.static(path.join(__dirname, 'client')));
-app.use(auth_routes);
-app.use(user_routes);
-app.use(supply_routes);
-
 
 app.get('*', function (req, res){
   res.sendFile('index.html', {root: __dirname + '/dist/GOB'})
